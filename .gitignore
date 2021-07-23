@@ -1,0 +1,4 @@
+# Project exclude paths
+/xdclass-common/target/
+/xdclass-user-service/target/
+/xdclass-video-service/target/
