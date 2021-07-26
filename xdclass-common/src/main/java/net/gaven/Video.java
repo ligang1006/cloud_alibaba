@@ -1,11 +1,14 @@
 package net.gaven;
 
+import lombok.Data;
+
 import java.util.Date;
 
 /**
  * @author: lee
  * @create: 2021/7/22 8:46 下午
  **/
+@Data
 public class Video {
     private Integer id;
     private String title;
