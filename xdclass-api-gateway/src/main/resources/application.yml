@@ -5,6 +5,10 @@ spring:
     name: api-gateway
 
   cloud:
+    nacos:
+      discovery:
+
+        server-addr: 127.0.0.1:8848
     gateway:
       routes: #数组形式
         - id: order-service  #路由唯一标识,一般写服务名称
@@ -14,6 +18,9 @@ spring:
             - Path=/order-server/**
           filters: #过滤器，请求在传递过程中通过过滤器修改
             - StripPrefix=1  #去掉第一层前缀
+      discovery:
+        locator:
+          enabled: true
 # - StripPrefix=1  #去掉第一层前缀http://localhost:8000/order-server/api/v1/video_order/list 把/order-server去掉就变成之前的地址了
 #访问路径 http://localhost:8888/order-server/api/v1/video_order/list
 #转发路径 http://localhost:8000/order-server/api/v1/video_order/list
