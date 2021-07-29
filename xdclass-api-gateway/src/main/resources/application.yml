@@ -50,6 +50,13 @@ spring:
       discovery:
         server-addr: 127.0.0.1:8848
 
+  zipkin:
+    base-url: http://127.0.0.1:9411/ #zipkin地址
+    discovery-client-enabled: false  #不用开启服务发现
+
+  sleuth:
+    sampler:
+      probability: 1.0 #采样百分比
 gateway:
   routes: #数组形式
     - id: order-service  #路由唯一标识
@@ -65,3 +72,4 @@ discovery:
     enabled: true  #开启网关拉取nacos的服务
 
 ## 访问路径 http://localhost:8888/order-server/api/v1/video_order/list
+
