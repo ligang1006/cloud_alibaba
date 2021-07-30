@@ -1,41 +1,41 @@
-server:
-  port: 8000
-
-spring:
-  application:
-    name: xdclass-order-service
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/cloud_video_order?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: root
-    password: root
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 127.0.0.1:8848
-    sentinel:
-      transport:
-        dashboard: 127.0.0.1:8080
-        port: 9999
-#微服务和控制台通信的端口9999
-  zipkin:
-    base-url: http://127.0.0.1:9411/ #zipkin地址
-    discovery-client-enabled: false  #不用开启服务发现
-
-  sleuth:
-    sampler:
-      probability: 1.0 #采样百分比
-
-# 控制台输出sql、下划线转驼峰
-mybatis:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-    map-underscore-to-camel-case: true
-#地址ribbon时配置的
-video:
-  url: http://127.0.0.1:9000/api/v1/video/find_by_id
-
-#  feign整合sentinel
-feign:
-  sentinel:
-    enabled: true
+#server:
+#  port: 8000
+#
+#spring:
+#  application:
+#    name: xdclass-order-service
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1:3306/cloud_video_order?useUnicode=true&characterEncoding=utf-8&useSSL=false
+#    username: root
+#    password: root
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 127.0.0.1:8848
+#    sentinel:
+#      transport:
+#        dashboard: 127.0.0.1:8080
+#        port: 9999
+##微服务和控制台通信的端口9999
+#  zipkin:
+#    base-url: http://127.0.0.1:9411/ #zipkin地址
+#    discovery-client-enabled: false  #不用开启服务发现
+#
+#  sleuth:
+#    sampler:
+#      probability: 1.0 #采样百分比
+#
+## 控制台输出sql、下划线转驼峰
+#mybatis:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    map-underscore-to-camel-case: true
+##地址ribbon时配置的
+#video:
+#  url: http://127.0.0.1:9000/api/v1/video/find_by_id
+#
+##  feign整合sentinel
+#feign:
+#  sentinel:
+#    enabled: true

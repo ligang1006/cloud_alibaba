@@ -16,6 +16,15 @@ public class VideoOrder {
     private String videoTitle;
     private String videoImg;
     private Integer userId;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Integer getId() {
         return id;

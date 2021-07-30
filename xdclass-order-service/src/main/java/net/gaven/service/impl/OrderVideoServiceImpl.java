@@ -7,6 +7,7 @@ import net.gaven.service.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -15,7 +16,11 @@ import org.springframework.web.client.RestTemplate;
  * @create: 2021/7/23 12:27 下午
  **/
 @Service
+@RefreshScope
 public class OrderVideoServiceImpl implements IOrderService {
+    @Value("${order.name}")
+    private String userName;
+
     @Autowired
     private IOpenFeignOrderService feignService;
     @Override
@@ -28,6 +33,7 @@ public class OrderVideoServiceImpl implements IOrderService {
             videoOrder.setVideoImg(video.getCoverImg());
             videoOrder.setVideoTitle(video.getTitle());
             videoOrder.setTotalFee(video.getPrice());
+            videoOrder.setName(userName);
             return videoOrder;
         }
         return null;
